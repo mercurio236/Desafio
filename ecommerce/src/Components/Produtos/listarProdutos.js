@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Button, Container, Row, Col } from 'react-bootstrap'
-import Logo from '../../logo.svg';
 import PropTypes from 'prop-types'
 import api from '../../Servicos/api'
 
 
 export default function ListarProdutos(props) {
 
-    const [protdutos, setProdutos] = useState([])
+    const [produtos, setProdutos] = useState([])
 
     useEffect(() => {
         function connection(){
@@ -41,13 +40,13 @@ export default function ListarProdutos(props) {
 
     function render() {
         
-        const cards = protdutos.map((produto) =>
+        const cards = produtos.map((produto) =>
             <Container fluid>
                 <Col>
                     <Card
                         key={produto.id}
                         style={{ width: '18rem', margin: 10, float: 'left' }}>
-                        <Card.Img src={produto.imageUrl} />
+                        <Card.Img src={produto.imageUrl} style={{height:250, width:280}}/>
                         <Card.Body>
                             <Card.Title>{produto.name}</Card.Title>
                             <Card.Text>

@@ -15,15 +15,15 @@ function App() {
 
     let novoProduto = true;
     objCarrinho.produtos.forEach((prod, index) => {
-      if (prod.nome === produto.nome) {
+      if (prod.name === produto.name) {
         objCarrinho.produtos[index].quantidade++;
         novoProduto = false;
       }
     })
     if (novoProduto) {
       objCarrinho.produtos.push({
-        nome: produto.nome, 
-        preco: produto.preco, 
+        nome: produto.name, 
+        preco: produto.price, 
         quantidade: 1
       })
     }

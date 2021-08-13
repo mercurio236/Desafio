@@ -13,7 +13,7 @@ function Produtos(props) {
 
     function exibirMensagem(produto) {
         setExibirMSG(true);
-        setProduto(produto.nome);
+        setProduto(produto.name);
         setTimeout(() => {
             setExibirMSG(false)
         }, 3000);
