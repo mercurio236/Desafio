@@ -46,7 +46,7 @@ function App() {
     <div>
       <Menu produtos={carrinho.produtos} handleExibirProdutos={handleExibirProdutos} handleExibirCheckout={handleExibirCheckout}/>
       <Produtos visivel={exibirProdutos} adicionarProduto={adicionarProduto} />
-      <Checkout />
+      
     </div>
   );
 }

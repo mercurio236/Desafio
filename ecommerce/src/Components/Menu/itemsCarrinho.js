@@ -10,7 +10,7 @@ export default function ItemsCarrinho(props){
         if(props.produtos.length === 0){
             return(
                 <NavDropdown.Item href="" data-testid="itens">
-                    <FontAwesomeIcon ico={faSadTear}/>
+                    <FontAwesomeIcon icon={faSadTear}/>
                     &nbsp;
                     Carrinho Vazio...
                 </NavDropdown.Item>
