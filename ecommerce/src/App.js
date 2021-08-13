@@ -1,23 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import Menu from './Components/Menu/menu'
+import Produtos from './Components/Produtos/produtos';
+import Checkout from './Components/Checkout/checkout';
 
 function App() {
+
+  const [carrinho, setCarrinho] = useState({ produtos: [] });
+  const [exibirProdutos, setExibirProdutos] = useState(true);
+  const [exibirCheckout, setExibirCheckout] = useState(false);
+  const [total, setTotal] = useState('0,00');
+
+  function adicionarProduto(produto) {
+    const objCarrinho = Object.assign({}, carrinho)
+
+    let novoProduto = true;
+    objCarrinho.produtos.forEach((prod, index) => {
+      if (prod.nome === produto.nome) {
+        objCarrinho.produtos[index].quantidade++;
+        novoProduto = false;
+      }
+    })
+    if (novoProduto) {
+      objCarrinho.produtos.push({
+        nome: produto.nome, 
+        preco: produto.preco, 
+        quantidade: 1
+      })
+    }
+
+    setCarrinho(objCarrinho)
+  }
+
+  function handleExibirProdutos(){
+    setExibirCheckout(false)
+    setExibirProdutos(true);
+  }
+
+  function handleExibirCheckout(total){
+    setExibirCheckout(true)
+    setExibirProdutos(false)
+    setTotal(total)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Menu produtos={carrinho.produtos} handleExibirProdutos={handleExibirProdutos} handleExibirCheckout={handleExibirCheckout}/>
+      <Produtos visivel={exibirProdutos} adicionarProduto={adicionarProduto} />
+      <Checkout />
     </div>
   );
 }
