@@ -53,7 +53,8 @@ export default function ListarProdutos(props) {
                                 <Card.Body>
                                     <Card.Title>{produto.name}</Card.Title>
                                     <Card.Text>
-                                        Ajustando
+                                        Gramas: {produto.skuName}
+                                       
                                     </Card.Text>
                                     <Button variant="success"  onClick={(event) => handleComprar(event, produto)}>Comprar por {produto.price}</Button>
                                 </Card.Body>
