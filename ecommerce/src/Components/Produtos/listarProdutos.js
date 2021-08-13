@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Button, Container, Row, Col } from 'react-bootstrap'
+import { Card, Button, Container, Row, Col, CardGroup } from 'react-bootstrap'
 import PropTypes from 'prop-types'
 import api from '../../Servicos/api'
 
@@ -9,14 +9,14 @@ export default function ListarProdutos(props) {
     const [produtos, setProdutos] = useState([])
 
     useEffect(() => {
-        function connection(){
+        function connection() {
             api.get('ecommerce/produtos')
-            .then((res) =>{
-                setProdutos(res.data)
-            })
-            .catch((err) =>{
-                console.log(err)
-            })
+                .then((res) => {
+                    setProdutos(res.data)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
         connection()
     }, [])
@@ -39,23 +39,28 @@ export default function ListarProdutos(props) {
     }
 
     function render() {
-        
+
         const cards = produtos.map((produto) =>
-            <Container fluid>
-                <Col>
-                    <Card
-                        key={produto.id}
-                        style={{ width: '18rem', margin: 10, float: 'left' }}>
-                        <Card.Img src={produto.imageUrl} style={{height:250, width:280}}/>
-                        <Card.Body>
-                            <Card.Title>{produto.name}</Card.Title>
-                            <Card.Text>
-                                Ajustando
-                            </Card.Text>
-                            <Button variant="success" style={{ width: '100%' }} onClick={(event) => handleComprar(event, produto)}>Comprar por {produto.price}</Button>
-                        </Card.Body>
-                    </Card>
-                </Col>
+            <Container >
+                <Row>
+                    <Col >
+                        <CardGroup >
+                            <Card
+                                key={produto.id}
+                                style={{flexDirection:'row', justifyContent:'center', alignItems:'center', display:'flex', marginBottom:15, marginTop:10}}>
+
+                                <Card.Img src={produto.imageUrl} style={{ height: 250, width: 280 }} />
+                                <Card.Body>
+                                    <Card.Title>{produto.name}</Card.Title>
+                                    <Card.Text>
+                                        Ajustando
+                                    </Card.Text>
+                                    <Button variant="success"  onClick={(event) => handleComprar(event, produto)}>Comprar por {produto.price}</Button>
+                                </Card.Body>
+                            </Card>
+                        </CardGroup>
+                    </Col>
+                </Row>
 
             </Container>
         )

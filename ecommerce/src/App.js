@@ -22,8 +22,8 @@ function App() {
     })
     if (novoProduto) {
       objCarrinho.produtos.push({
-        nome: produto.name, 
-        preco: produto.price, 
+        name: produto.name, 
+        price: produto.price, 
         quantidade: 1
       })
     }
