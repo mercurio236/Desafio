@@ -13,8 +13,8 @@ export default function Menu(props) {
         }
         let total = 0;
         props.produtos.forEach(produto => {
-            let price = produto.price.toString().replace('', '.').replace('R$', '');
-            total += parseFloat(price) * produto.quantidade;
+            let price = produto.price.toString().replace(',', '.').replace('R$', '');
+            total += parseFloat(price) * produto.quantidade/100;
         });
         return total.toFixed(2).toString().replace('.', ',');
     }

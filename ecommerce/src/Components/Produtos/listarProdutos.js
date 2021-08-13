@@ -39,9 +39,9 @@ export default function ListarProdutos(props) {
     }
 
     function render() {
-
+        
         const cards = produtos.map((produto) =>
-            <Container >
+        <Container >
                 <Row>
                     <Col >
                         <CardGroup >
@@ -56,7 +56,7 @@ export default function ListarProdutos(props) {
                                         Gramas: {produto.skuName}
                                        
                                     </Card.Text>
-                                    <Button variant="success"  onClick={(event) => handleComprar(event, produto)}>Comprar por {produto.price}</Button>
+                                    <Button variant="success"  onClick={(event) => handleComprar(event, produto)}>Comprar por {parseFloat(produto.price)/100}</Button>
                                 </Card.Body>
                             </Card>
                         </CardGroup>
