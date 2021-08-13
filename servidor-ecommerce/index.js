@@ -4,7 +4,8 @@ const cors = require('cors')
 
 const {
     finalizarCompra,
-    obterCidadesPorEstados
+    obterCidadesPorEstados,
+    obterProdutos
 } = require('./controllers/ecommerce')
 
 const app = express();
@@ -18,6 +19,7 @@ app.use(bodyParse.json());
 
 app.post('/ecommerce/checkout/finalizar-compra', finalizarCompra);
 app.get('/ecommerce/estado/:siglaEstado/cidades', obterCidadesPorEstados);
+app.get('/ecommerce/:produtos', obterProdutos);
 
 
 app.listen(port, () => console.log(`Servidor iniciado na porta ${port}`))

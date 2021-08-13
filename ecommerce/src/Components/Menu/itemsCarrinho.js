@@ -18,7 +18,7 @@ export default function ItemsCarrinho(props){
         }
         const itens = props.produtos.map(produto =>
             <NavDropdown.Item href="" key={produto.id}>
-                {produto.nome} - {produto.quantidade} x {produto.preco}
+                {produto.nome} - {produto.quantidade} x {produto.price}
             </NavDropdown.Item>
             );
             return itens;
