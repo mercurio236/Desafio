@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Navbar, Nav, NavDropdown, Container, Alert } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, Container, Alert, DropdownButton } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingBasket, faCashRegister, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import PropTypes from 'prop-types';
@@ -41,7 +41,7 @@ export default function Menu(props) {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
                     <Nav>
-                        <NavDropdown title={
+                        <NavDropdown  title={
                             <div style={{ display: 'inline-block' }}>
                                 <FontAwesomeIcon icon={faShoppingCart} />
                                 &nbsp;
